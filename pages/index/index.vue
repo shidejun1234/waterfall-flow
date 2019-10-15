@@ -3,13 +3,13 @@
 		<view hidden>
 			<block v-for="(a,b) in imgList">
 				<block v-for="(item,index) in a">
-					<image @load="imageLoad" :data-src="item.src" :src="item.src" mode="widthFix"></image>
+					<image @load="imageLoad" :data-src="item.src" :src="item.src"></image>
 				</block>
 			</block>
 		</view>
 		<view>
 			<block v-for="(item,index) in imgList1">
-				<image :src="item.src" mode="widthFix" :style="`left: ${item.left}upx;top: ${item.top}upx;`"></image>
+				<image :src="item.src" :style="`left: ${item.left}upx;top: ${item.top}upx;height:${item.height}upx;`"></image>
 			</block>
 		</view>
 	</view>
@@ -148,9 +148,10 @@
 				this.imgList1.push({
 					src: src,
 					left: minIndex * imgWidth,
-					top: minValue
+					top: minValue,
+					height: height
 				})
-				colHeightArry[minIndex] += height
+				colHeightArry[minIndex] += height+20
 			}
 		}
 	}
